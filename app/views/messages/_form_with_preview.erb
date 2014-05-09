@@ -6,13 +6,3 @@
   <div id="preview-subject"></div>
   <div id="preview-email" style="width:600px;border:1px solid #999;padding:10px;"></div>
 </div>
-
-<script type="text/javascript">
-  function preview() {
-    if(!navigator.userAgent.match(/MSIE 5/)) { // IE 5.x fails to serialize this form properly
-      $.post('<%= messages_path %>', $('#message').serialize()+'&preview=true');
-    }
-  }
-  observeFields(preview, 5000, ['message_subject', 'message_body']);
-  $('#message_subject')[0].focus();
-</script>

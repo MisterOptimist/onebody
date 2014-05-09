@@ -5,7 +5,7 @@
   <p>
     <% unless @message.parent %>
       <%= form.label :subject, t('messages.subject') %>
-      <%= form.text_field :subject %><br/>
+      <%= form.text_field :subject, autofocus: true %><br/>
     <% else %>
       <%= form.hidden_field :subject %>
     <% end %>

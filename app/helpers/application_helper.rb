@@ -101,7 +101,7 @@ module ApplicationHelper
 
   def image_tag(location, options)
     options[:title] = options[:alt] if options[:alt]
-    super(location, options)
+    super(location, options).sub(/(dev\-)?assets/, 'images').html_safe # FIXME temporary until we move images to app/assets
   end
 
   def simple_url(url)

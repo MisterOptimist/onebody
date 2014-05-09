@@ -24,5 +24,15 @@ OneBody::Application.configure do
 
   # Raise an error when unauthorized parameters are assigned to a model
   config.action_controller.action_on_unpermitted_parameters = :raise
+
+  # Do not compress assets
+  config.assets.compress = false
+
+  # Expands the lines which load the assets
+  config.assets.debug = true
+
+  # Store cached assets here for dev mode since we commit compiled assets to source control
+  # http://guides.rubyonrails.org/asset_pipeline.html#local-precompilation
+  config.assets.prefix = '/dev-assets'
 end
 

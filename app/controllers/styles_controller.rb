@@ -28,7 +28,7 @@ class StylesController < ApplicationController
       scss,
       syntax: :scss,
       cache:  false,
-      style:  :compressed
+      style:  Rails.env.production? ? :compressed : :nested
     ).render
     expires_in(1.year)
     render text: css, type: 'text/css'
