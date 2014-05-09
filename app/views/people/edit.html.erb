@@ -1,3 +1,5 @@
+<% content_for :subnav, render('menu') %>
+
 <% content_for :sidebar do %>
   <p><%= link_to t('people.edit.privacy'), edit_person_privacy_path(@person), class: 'lock-icon' %></p>
   <p><%= link_to t('people.edit.email'), edit_person_path(@person, email: true), class: 'email-icon' %></p>

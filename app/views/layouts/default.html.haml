@@ -31,10 +31,15 @@
         .heading
           %h1= heading
           .tagline= subheading
+      #subnav
+        - if (subnav = yield(:subnav)).present?
+          .subnav-indicator{class: "pos#{@subnav_indicator_position}"}
+          .container
+            .inner= subnav
     = notice
     #main
       .inner
-        - if (sidebar = yield(:sidebar)).any?
+        - if (sidebar = yield(:sidebar)).present?
           .left-sidebar
             = sidebar
           .accommodate-left-sidebar
@@ -50,4 +55,3 @@
         &middot;
         = t('layouts.powered_by_html')
     = analytics_js
-    = menu_content

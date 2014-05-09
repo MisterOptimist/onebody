@@ -1,0 +1,14 @@
+<% if Setting.get(:features, :pictures) or Setting.get(:features, :verses) or Setting.get(:features, :news_page) %>
+  <% @subnav_indicator_position = 1 %>
+  <ul class="sub-menu home">
+    <% if Setting.get(:features, :pictures) %>
+      <li><%= link_to t('menus.home.pictures'), albums_path %></li>
+    <% end %>
+    <% if Setting.get(:features, :verses) %>
+      <li><%= link_to t('menus.home.verses'), verses_path %></li>
+    <% end %>
+    <% if Setting.get(:features, :news_page) %>
+      <li><%= link_to t('menus.home.news'), news_path %></li>
+    <% end %>
+  </ul>
+<% end %>

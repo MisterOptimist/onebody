@@ -1,0 +1,6 @@
+<% @subnav_indicator_position = 4 %>
+<ul class="sub-menu directory">
+  <li><%= link_to t('menus.search.advanced_search'), new_search_path(advanced: true) %></li>
+  <li><%= link_to t('menus.search.printed_directory'), printable_directory_path %></li>
+  <li><%= link_to t('menus.search.business_directory'), search_path(business: true) %></li>
+</ul>

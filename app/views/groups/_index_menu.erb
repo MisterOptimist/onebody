@@ -1,0 +1,5 @@
+<% @subnav_indicator_position = 3 %>
+<ul class="sub-menu groups">
+  <li><%= link_to t('menus.group.create'), new_group_path %></li>
+  <li><%= link_to t('menus.group.email_settings'), edit_person_path(@logged_in, email: true) %></li>
+</ul>

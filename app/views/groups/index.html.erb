@@ -1,3 +1,5 @@
+<% content_for :subnav, render('index_menu') %>
+
 <% if @unapproved_groups.any? %>
   <div class="highlight">
     <%= t('groups.following_are_pending_approval', count: @unapproved_groups.length) %>

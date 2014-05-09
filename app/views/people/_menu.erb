@@ -1,0 +1,12 @@
+<% @subnav_indicator_position = 2 %>
+<ul class="sub-menu profile">
+  <li><%= link_to t('menus.profile.edit'), edit_person_path(@person) %></li>
+  <li><%= link_to t('menus.profile.privacy'), edit_person_privacy_path(@person) %></li>
+  <li><%= link_to t('menus.profile.email'), edit_person_path(@person, email: true) %></li>
+  <% if @logged_in.admin?(:edit_profiles) %>
+    <li><%= link_to t('menus.profile.relationships'), person_relationships_path(@person) %></li>
+    <% if not @family or @family.persisted? %>
+      <li><%= link_to t('menus.profile.edit_family'), family_path(@family || @person.family) %></li>
+    <% end %>
+  <% end %>
+</ul>

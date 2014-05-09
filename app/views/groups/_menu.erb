@@ -1,10 +1,8 @@
-<% if @logged_in.can_edit?(@group) %>
-  <div id="group-tab-menu" style="display:none;">
-    <ul class="popup-menu">
-      <% if @logged_in.can_edit?(@group) %>
-        <li><%= link_to t('menus.group.edit'), edit_group_path(@group), class: 'edit-icon' %></li>
-        <li><%= link_to t('menus.group.delete'), group_path(@group), method: :delete, confirm: t('are_you_sure'), class: 'delete-icon' %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<% @subnav_indicator_position = 3 %>
+<ul class="sub-menu groups">
+  <li><%= link_to t('menus.group.members'), group_memberships_path(@group) %></li>
+  <% if @logged_in.can_edit?(@group) %>
+    <li><%= link_to t('menus.group.edit'), edit_group_path(@group) %></li>
+    <li><%= link_to t('menus.group.delete'), group_path(@group), method: :delete, confirm: t('are_you_sure') %></li>
+  <% end %>
+</ul>

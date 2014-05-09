@@ -1152,8 +1152,15 @@ en:
       password: password
       relationships: relationships
     group:
+      create: create a group
       delete: delete group
       edit: edit group
+      email_settings: group email settings
+      members: group members
+    search:
+      advanced_search: advanced search
+      business_directory: business directory
+      printed_directory: printed directory
 
   messages: 
     ago: ago
@@ -1192,11 +1199,14 @@ en:
     to_show_the_entire_message: to show the entire message.
     unknown_type: Unknown message type.
 
-  nav: 
+  nav:
+    account: account
+    admin: admin
     directory: Directory
     groups: Groups
     home: Home
     profile: Profile
+    sign_out: sign out
 
   news: 
     body_description: "Share your announcement, information, or news here:"

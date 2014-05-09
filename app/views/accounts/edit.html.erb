@@ -1,18 +1,33 @@
-<h2><%= @person.name %></h2>
+<% content_for :sidebar do %>
+  <h2><%= @person.name %></h2>
+
+  <p>
+    <%= link_to t('people.edit.profile'), edit_person_path(@person) %><br/>
+    <%= link_to t('people.edit.privacy'), edit_person_privacy_path(@person) %>
+  </p>
+<% end %>
+
 <%= form_for @person, url: person_account_path(@person) do |form| %>
   <%= error_messages_for(form) %>
   <p>
     <%= form.label :person_email, t('session.email_address') %>
     <%= form.text_field :email, style: 'border:1px solid #ccc;font-size:20pt;width:500px;' %><br/>
-    <strong class="very-strong"><%= t('accounts.change_email_warning', person: @person == @logged_in ? t('accounts.you_use') : @person.name + ' ' + t('accounts.uses')) %></strong>
-    <br/>
+  </p>
+
+  <p>
     <%= form.label :person_password, t('session.password') %>
     <%= form.password_field :password %><br/>
-    <% if @person.encrypted_password %>
+    <% if @person.password_hash %>
       <%= t('accounts.leave_blank') %><br/>
     <% end %>
+  </p>
+
+  <p>
     <%= form.label :password_confirmation, t('session.password_confirm') %>
     <%= form.password_field :password_confirmation %><br/>
+  </p>
+
+  <p>
     <%= submit_tag t('save_changes') %>
   </p>
 <% end %>

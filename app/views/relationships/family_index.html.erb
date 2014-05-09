@@ -1,10 +1,9 @@
-<% content_for :subnav do %>
-  <li><%= link_to @family.name, @family %></li>
+<% content_for :sidebar do %>
+  <h2><%= @family.name %></h2>
 <% end %>
 
-<h2>Family Relationships for <%= @family.name %></h2>
-
 <% if @relationships.any? %>
+  <h3>Family Relationships</h3>
 
   <table id="unique_relationships" class="spaced">
     <tr>
@@ -18,7 +17,7 @@
       </tr>
     <% end %>
   </table>
-  
+
   <table id="individual_relationships" style="display:none;" class="spaced">
     <tr>
       <th><%= t('From') %></th>
@@ -35,13 +34,13 @@
       </tr>
     <% end %>
   </table>
-  
+
   <p><%= link_to_function t('relationships.toggle_individual'), "$('#unique_relationships, #individual_relationships').toggle();" %></p>
-  
+
 <% else %>
 
   <p><em><%= t('none') %></em></p>
-  
+
 <% end %>
 
 <% if @family.people.count > 0 %>

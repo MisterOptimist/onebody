@@ -29,7 +29,7 @@ module NavHelper
   end
 
   def directory_nav_link
-     content_tag(:li) do
+    content_tag(:li) do
       tab_link(t("nav.directory"), new_search_path, %w(searches printable_directories).include?(params[:controller]), 'directory-tab')
     end
   end
@@ -37,10 +37,16 @@ module NavHelper
   def common_nav_links
     [].tap do |links|
       if @logged_in
-        links << content_tag(:li, link_to(t("admin.admin"), admin_path)) if @logged_in.admin?
-        links << content_tag(:li, link_to(t("session.sign_out"), session_path, method: :delete))
+        links << content_tag(:li, link_to(t("nav.account"), edit_person_account_path(@logged_in)))
+        links << content_tag(:li, link_to(t("nav.admin"), admin_path)) if @logged_in.admin?
+        links << content_tag(:li, link_to(t("nav.sign_out"), session_path, method: :delete))
       end
     end.join.html_safe
   end
 
+  def class_from_subnav(content)
+    if content =~ /class="sub-menu (.*)"/
+      $1
+    end
+  end
 end
